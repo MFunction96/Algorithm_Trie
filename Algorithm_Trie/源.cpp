@@ -52,11 +52,7 @@ struct Trie
 		for (unsigned int i = 0; i < l; i++)
 		{
 			int c = idx(s[i]);
-			if (!ch[u][c])
-			{
-				if (cost) return cost;
-				else return -1;
-			}
+			if (!ch[u][c]) return cost;
 			cost += val[u];
 			u = ch[u][c];
 		}
@@ -77,7 +73,6 @@ int main()
 		while (t--)
 		{
 			bool flag = true;
-			string str;
 			trie.Init();
 			cin >> n;
 			while (n--)
@@ -89,7 +84,7 @@ int main()
 			}
 			for (unsigned int i = 0; i < v.size() && flag; i++)
 			{
-				if (trie.Query(v[i]) > 0) flag = false;
+				if (trie.Query(v[i])) flag = false;
 			}
 			if (flag) cout << "YES" << endl;
 			else cout << "NO" << endl;
