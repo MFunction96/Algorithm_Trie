@@ -24,7 +24,6 @@ struct Trie
 
 	Trie(char c) :stdc(c)
 	{
-		stdc = c;
 		Init();
 	}
 
